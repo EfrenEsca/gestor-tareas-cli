@@ -1,12 +1,16 @@
 tareas = []
+siguiente_id = 1
 
-def agregar_tareas(titulo):
+
+def agregar_tarea(titulo):
+    global siguiente_id
     NuevaTarea = {
-        "id": len(tareas) + 1,
+        "id": siguiente_id,
         "titulo": titulo,
         "completada": False   
     }
     tareas.append(NuevaTarea)
+    siguiente_id += 1
     print(f"Tarea Agregada: {titulo}")
     
 def listar_tareas():
@@ -27,8 +31,13 @@ def completar_tarea(id_tarea):
         
     print(f"No se encontro ninguna tarea con el id {id_tarea}")
     
+def eliminar_tarea(id_tarea):
+    global tareas 
+    tareas = [tarea for tarea in tareas if tarea["id"] != id_tarea]
+    print(f"tarea {id_tarea} eliminada (si existia)")
     
-agregar_tareas("Comprar Leche")
-agregar_tareas("Estudiar Python")
-completar_tarea(1)
+agregar_tarea("Comprar Leche")
+agregar_tarea("Estudiar Python")
+eliminar_tarea(1)
+agregar_tarea("Hacer Ejercicio")
 listar_tareas()
