@@ -6,4 +6,4 @@ Mi primer proyecto de portafolio: una aplicación de línea de comandos para ges
 🚧 En construcción
 
 ## Tecnologías
-- Python 3.14
+- Python 3.14   
